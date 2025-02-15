@@ -2,45 +2,45 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  body {
+}
+
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-color: #000;
-  }
-  
-  .game-container {
+}
+
+.game-container {
     position: relative;
     width: 100%;
     max-width: 800px;
     height: 400px;
     background-color: #333;
     overflow: hidden;
-  }
-  
-  .paddle {
+}
+
+.paddle {
     position: absolute;
     width: 10px;
     height: 80px;
     background-color: #fff;
-  }
-  
-  #player-paddle {
+}
+
+#player-paddle {
     left: 10px;
     top: 50%;
     transform: translateY(-50%);
-  }
-  
-  #ai-paddle {
+}
+
+#ai-paddle {
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
-  }
-  
-  .ball {
+}
+
+.ball {
     position: absolute;
     width: 15px;
     height: 15px;
@@ -49,19 +49,90 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
-  
-  @media (max-width: 600px) {
+}
+
+@media (max-width: 600px) {
     .game-container {
-      height: 300px;
+        height: 300px;
     }
-  
+
     .paddle {
-      height: 60px;
+        height: 60px;
     }
-  
+
     .ball {
-      width: 12px;
-      height: 12px;
+        width: 12px;
+        height: 12px;
     }
-  }
+}
+
+.score-container {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 48px; /* Tamaño más grande */
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    gap: 60px; /* Espacio entre los marcadores */
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente más oscuro */
+    padding: 15px 30px; /* Espaciado interno más grande */
+    border-radius: 15px; /* Bordes más redondeados */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7); /* Sombra más pronunciada */
+    z-index: 10; /* Asegurar que esté por encima de otros elementos */
+}
+
+.score-container span {
+    font-weight: bold; /* Texto en negrita */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra de texto para mejor legibilidad */
+}
+
+#player-score {
+    color: #00ff00; /* Color verde para el jugador */
+}
+
+#ai-score {
+    color: #ff0000; /* Color rojo para la IA */
+}
+
+.hidden {
+    display: none;
+}
+
+#game-over-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    font-size: 48px; /* Tamaño más grande */
+    font-family: Arial, sans-serif;
+    z-index: 10; /* Asegurar que esté por encima de otros elementos */
+}
+
+#restart-button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #fff;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* Sombra para resaltar */
+}
+
+#restart-button:hover {
+    background-color: #ddd;
+}
+
+@keyframes score-pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.score-pop {
+    animation: score-pop 0.3s ease-in-out;
+}

@@ -7,11 +7,20 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="score-container">
+    <span id="player-score">0</span>
+    <span id="ai-score">0</span>
+  </div>
   <div class="game-container">
     <div class="paddle" id="player-paddle"></div>
     <div class="paddle" id="ai-paddle"></div>
     <div class="ball" id="ball"></div>
   </div>
+  <div id="game-over-message" class="hidden">
+    <span id="winner-text"></span>
+    <button id="restart-button">Reiniciar</button>
+  </div>
+  <audio id="score-sound" src="score.mp3"></audio>
   <script src="script.js"></script>
 </body>
 </html>
